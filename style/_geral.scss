@@ -1,0 +1,84 @@
+html, body{
+    height: 100%;
+    width: 100%;
+    background-color: $primary;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+main{
+    width: 100%;
+    background: white url('../assets/pattern.svg'); 
+    background-size: 32px;
+    background-attachment: fixed;
+    background-position-y: 21.5%;
+}
+article{
+    height: 90vh;
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+    box-sizing: border-box;
+    background-color: white;
+    border: 0 solid rgb(212, 212, 212);
+    border-width: 0 2px;
+    border-bottom-width: 2px;
+    @media screen and (max-width: 768px){
+        width: 100%;
+    }
+}
+article:nth-of-type() header{
+    border-top: 2px solid rgb(212, 212, 212);
+}
+article:last-of-type{
+    border-bottom: none;
+}
+
+
+header{
+    color: $primary;
+    font-size: 5vh;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    height: 10vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid rgb(212, 212, 212);
+}
+header.no-borders{
+    border: none;
+}
+.white{ 
+    color: white;
+}
+button{
+    cursor: pointer;
+    border-radius: 2rem;
+    padding: 1rem 1.25rem;
+    border: 3px solid $primary;
+    color: $primary;
+    background-color: white;
+    font-size: 3vh;
+    transition: all .5s ease-in-out;
+    font-family: 'Roboto', sans-serif;
+    margin: 3vh 0;
+    &:hover{
+        background-color: $primary;
+        color: white;
+        transform: scale(1.2);
+    }
+
+}
+button.white{
+    border: 3px solid white;
+    color: white;
+    background-color: $primary;
+        &:hover{
+            background-color: white;
+            color: $primary;
+        }
+    }

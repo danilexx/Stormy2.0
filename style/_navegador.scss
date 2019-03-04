@@ -1,0 +1,257 @@
+nav {
+    background-color: $primary;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 10vh;
+    top: 0;
+    transition: height 1s ease-in-out, background-color 1s ease-in-out;
+    z-index: 10;
+    @media screen and (min-width: 769px){
+        &.big {
+            height: 20vh;
+            background-color: rgba($color: $primary, $alpha: .5);
+            li{
+                margin: auto 20px;
+            }
+            .logo img{
+                height: 15vh;
+            }
+        }
+    }
+
+    @media screen and (max-width: 768px){
+        justify-content: flex-start;
+        
+        &.expand{
+            box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 10px 0px;
+            height: 50%;
+            
+            ul{
+                
+                li{
+                    transform: translateX(0);
+                    opacity: 1;
+        
+                    &:nth-child(1){
+                        transition: all .75s ease-in-out 
+                    }                       
+                    &:nth-child(2){
+                        transition: all .5s ease-in-out .25s
+                    }                       
+                    &:nth-child(4){
+                        transition: all .5s ease-in-out .5s
+                    }                       
+                    &:nth-child(5){
+                        transition: all .5s ease-in-out .75s
+                    }  
+                                    
+                }
+
+            }
+        }
+    }
+    ul{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        list-style-type: none;
+        @media screen and (min-width: 1024px){
+            width: 60%;
+
+        }
+        @media screen and (max-width: 768px){
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            transform-origin: top;
+            height: 0;
+            transition: all 1.5s ease-in-out;
+
+            li[type='logo'],a.logo{
+                transition: none;
+                display: none;
+            }
+        }
+
+        li  {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            z-index: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            @media screen and (max-width: 768px) {
+                height: 10vh;
+
+            }
+            p{
+                transition: text-shadow .5s ease-in-out;
+            }
+            &:hover{
+                p{
+                    
+                    color: #FFFFFF;
+                    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #24E3D0, 0 0 30px #24E3D0, 0 0 40px #24E3D0, 0 0 55px #24E3D0, 0 0 75px #24E3D0;
+                }
+                &::after{
+                    transform: none;
+                    opacity: 1;
+                }
+            }
+            &::after{
+                position: absolute;
+                content: '';
+                background: url('../assets/raio.svg') no-repeat;
+                background-position: center;
+                background-size: contain;
+                width: 64px;
+                height: 64px;
+                z-index: -1;
+                transform: translateY(-50%);
+                opacity: 0;
+                transition: transform .5s ease-in-out, opacity .5s ease-in-out;
+
+            }
+            &[type='logo']::after{
+                display: none;
+            }
+        }     
+
+        li{
+            text-decoration: none;
+            transition: margin .5s ease-in-out;
+            &,a{
+                color: white;
+            }
+            a{
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                display: inherit;
+                justify-content: inherit;
+                align-items: inherit
+            }
+            p{
+                transition: all .5s ease-in-out;
+            }
+            
+            font-size: 3vh;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            @media screen and (max-width: 768px){
+                transform: translateX(100%);
+                opacity: 0;
+                &:nth-child(1){
+                    transition: all .25s ease-in-out 
+                }                    
+                &:nth-child(2){
+                    transition: all .25s ease-in-out 
+                }                    
+                &:nth-child(4){
+                    transition: all .25s ease-in-out 
+                } 
+                &:nth-child(5){
+                    transition: all .25s ease-in-out  
+                }           
+            }   
+            &.active{
+                p{
+                    font-size: 3.5vh;
+                    color: #FFFFFF;
+                    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #24E3D0, 0 0 30px #24E3D0, 0 0 40px #24E3D0, 0 0 55px #24E3D0, 0 0 75px #24E3D0;
+                }
+
+            }                  
+        }
+
+    }   
+}
+
+
+            
+a{
+    text-decoration: none;
+}
+
+// <div class="brand">
+//     <a class="logo" href="https://www.google.com/" >
+//         <img src="/assets/logo.svg">
+//     </a>
+//     <button class="toggler-btn">TO</button>
+// </div>
+.expand{
+    .brand{
+        box-shadow: rgba(0, 0, 0, 0.34) 0px 5px 10px 0px;
+    }
+}
+.brand{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10vh;
+    transition: box-shadow 1s ease-in-out .5s;
+    .toggler-btn{
+        position: absolute;
+        right: 0;
+        margin: 0 5%;
+        fill: white;
+        height: 32px;
+    }
+    @media screen and (max-width: 768px){
+        display: flex;
+    } 
+        
+}
+.logo{
+    margin: 2.5vh;
+    img {
+        height: 10vh;
+        padding: 10px;
+        box-sizing: border-box;
+        width: auto;
+        transition: transform .5s ease-in-out, height .5s ease-in-out;
+
+    }
+    &:hover{
+        img{
+            transform: scale(1.25) 
+        }
+    }
+    
+}
+
+
+
+
+#hamburguer-icon{
+    fill: white;
+    stroke: white;
+    background-image: url(/assets/hamburguer-icon.svg);
+    width: 64px;
+    height: 64px;
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    transition: background-position .25s ease-in-out;
+    transition-timing-function: steps(60);
+    transform: scale(0.5);
+    &.changed{
+        background-position: -3840px 0px;
+    }
+}
+        
+
+
+.navFake{
+    height: 15vh;
+}

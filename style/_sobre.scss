@@ -1,0 +1,123 @@
+
+// <div class="controlContainer">
+    // <div class="btns">
+        // <div class="HistoriaContainer">Historia</div>
+        // <div class="ValoresContainer">Valores</div>
+    // </div>
+// </div>
+.controlContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+}
+.btns{
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: url('../assets/sobre-btn.svg') no-repeat;
+    background-position: right;
+    background-size: 50% 100%;
+    padding: 0;
+    width: 300px;
+    border-radius: 50px;
+    transition: all 1s ease-in-out;
+    transform: translateY(50%);
+}
+.HistoriaContainer,.ValoresContainer{
+    display: inline;
+    padding: 10px 20px;
+    p{
+        width: fit-content;
+        margin: 0 auto;
+        font-size: 3vh;
+        transition: all 1s ease-in-out;
+    }
+}
+
+.HistoriaContainer{
+    color: $primary;
+    border: 3px solid $primary;
+    border-right-width: 0;
+    width: 50%;
+    border-radius: 50px 0 0 50px;
+}
+.ValoresContainer{
+    color: white;
+    border: 3px solid $primary;
+    border-left-width: 0;
+    width: 50%;
+    border-radius: 0 50px 50px 0;
+}
+.btns.inverted{
+    background-position: left;
+    .HistoriaContainer{
+        color: white;
+        border: 3px solid $primary;
+        border-right-width: 0;
+        width: 50%;
+        border-radius: 50px 0 0 50px;
+    }
+    .ValoresContainer{
+        color: $primary;
+        border: 3px solid $primary;
+        border-left-width: 0;
+        width: 50%;
+        border-radius: 0 50px 50px 0;
+    }
+
+}
+
+.textContainer{
+    border: 3px solid $primary;
+    height: fit-content;
+    // padding: 40px;
+    font-size: 3.5vh;
+    border-radius: 50px;
+    overflow: hidden;
+    width: 70%;
+}
+
+.txtSwitcher{
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    width: 200%;
+}
+.Historia,.Valores{
+    
+    padding: 25px;
+    width: 90%;
+    height: 50vh;
+    transition: transform 1s ease-in-out;  
+    @media screen and (max-width: 768px){
+        // padding: 0;
+    }
+}
+.txtSwitcher.switch{
+    .Historia,.Valores{
+        transform: translateX(-100%);
+    }
+}
+
+@media screen and (max-width: 768px){
+
+    .textContainer{
+        box-sizing: border-box;
+        border: none;
+        border-radius: 0;
+        width: 100%;
+    }
+
+}
+
+.container-sobre{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    box-sizing: border-box;
+
+}
