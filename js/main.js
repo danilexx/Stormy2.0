@@ -211,6 +211,15 @@ window.addEventListener('resize', ()=>{
         })
     }
 })
+
+let clearButton = document.querySelector('.icon')
+console.log(clearButton)
+clearButton.addEventListener('click', ()=>{
+    let inputList = document.querySelectorAll('input, textarea');
+    inputList.forEach(element=>{
+        element.value = '';
+    })
+})
 // while (appList.length>5){
 
 // }

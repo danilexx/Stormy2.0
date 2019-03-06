@@ -163,7 +163,7 @@
         
         <article id="Contato">
             <header>Contato</header>
-            <div class="contato-container">
+            <form class="contato-container">
                 <div class="input-container">
                     <div class="field">               
                         <input id="name" type="text" required>
@@ -181,11 +181,27 @@
                     <textarea placeholder="Mensagem..."></textarea>
                 </div>
                 <div class="bottom-icons-container">
-                    <div class="icon"><img src="assets/contato/clear.svg"></div>
-                    <div class="icon"><img src="assets/contato/clip.svg"></div>
-                    <div class="icon"><img src="assets/contato/send.svg"></div>                    
+                    <div class="icon">
+                        <label for="reset-input">
+                            <img src="assets/contato/clear.svg">
+                        </label>
+                        <input type="reset" id="clear-input"> 
+                    </div>
+                    <div class="icon">
+                        <label for="file-input">
+                            <img src="assets/contato/clip.svg">
+                        </label>
+                        <input type="file" id="file-input"> 
+                    </div>
+                    <div class="icon">
+                            <label for="submit-input">
+                                <img src="assets/contato/send.svg">
+                            </label>
+                            <input type="submit" id="submit-input"> 
+                        </div>          
+                            
                </div>
-            </div>
+            </form >
         </article>
     </main>
     

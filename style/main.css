@@ -1366,4 +1366,23 @@ a {
   height: 32px;
   width: 32px;
 }
+
+.bottom-icons-container input {
+  display: none;
+}
+
+.bottom-icons-container label {
+  padding: 30px;
+  cursor: pointer;
+}
+
+input:-internal-autofill-previewed,
+input:-internal-autofill-selected,
+textarea:-internal-autofill-previewed,
+textarea:-internal-autofill-selected,
+select:-internal-autofill-previewed,
+select:-internal-autofill-selected {
+  background-color: white !important;
+  color: #393e47 !important;
+}
 /*# sourceMappingURL=main.css.map */
