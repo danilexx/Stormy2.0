@@ -1,0 +1,115 @@
+// <div class="contato-container">
+//     <div class="input-container">
+//         <div class="field">
+//             <label for="name">Nome</label>
+//             <input id="name" type="text">
+//         </div>
+//         <div class="field">
+//             <label for="email">Email</label>
+//             <input id="email" type="text">
+//         </div>
+//     </div>
+//     <div class="assunto-container">
+//         <header class="completo">Assunto</header>
+//     </div>
+//     <div class="text-area-container">
+//         <textarea name="mensage">
+
+//         </textarea>
+//     </div>
+//     <div class="bottom-icons-container">
+//         <img src="assets/contato/clear.svg">
+//         <img src="assets/contato/clip.svg">
+//         <img src="assets/contato/send.svg">
+//     </div>
+// </div>
+
+.contato-container{
+    display: grid;
+    height: 80vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 20% 10% 55% 15%;
+    @media (max-width: 768px){
+        grid-template-rows: 20% 15% 50% 15%; 
+    }
+    header{
+        height: 100%;
+
+    }
+}
+.input-container{
+    grid-row: 1;
+    @extend %flex;
+    @media (max-width: 768px){
+        flex-direction: column;
+    }
+}
+.assunto-container{
+    grid-row: 2;
+}
+.text-area-container{
+    grid-row: 3;
+    textarea{
+        height: 100%;
+        width: 100%;
+        resize: none;
+        border: none;
+        color: $primary;
+        font-size: 2rem;
+    }
+}
+.field{
+    position: relative;
+    margin: 2px 10px;
+    font-family: 'Roboto', sans-serif;
+    input{
+        border-radius: 20px;
+        border: 2px solid rgb(212, 212, 212);
+        font-size: 1rem;
+        transition: all .5s ease-in-out;
+        padding: 10px;
+        &:focus{
+            border-color: $primary;
+            outline: none;
+        }
+        &:focus ~ label, &:valid ~ label{
+            top: 0;
+            left: 15px;
+            background-color: white;
+            @media (max-width: 768px){
+                opacity: 0;
+            }
+        }
+    }
+    label{
+        user-select: none;
+        pointer-events: none;
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        transition: all 0.5s ease-in-out;
+        color: $primary;
+    }
+}
+.bottom-icons-container{
+    grid-row: 4;
+    height: 100%;
+    border: 0 solid rgb(212, 212, 212);
+    border-width: 2px 0;
+    @extend %flex;
+    justify-content: space-between;
+    user-select: none;
+    .icon{
+        cursor: pointer;
+        @extend %flex;
+        background-color: $primary;
+        $size: 12vh;
+        height: $size;
+        width: $size;
+    }
+    img{
+        height: 32px;
+        width: 32px;
+    }
+}

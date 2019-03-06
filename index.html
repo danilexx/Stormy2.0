@@ -78,6 +78,41 @@
         </article>
         <article id="Projetos">
             <header>Projetos</header>
+            <div class="appdrawner">
+                <div class="left-arrow-container">
+                    <img src="assets/arrow-icon.svg">
+                </div>
+                <div class="app-drawner">
+                    <div class="apps">
+                        <div class="app selected red"></div>
+                        <div class="app blue"></div>
+                        <div class="app purple"></div>
+                        <div class="app red"></div>
+                        <div class="app blue"></div>
+                    </div>
+                </div>
+                <div class="right-arrow-container">
+                    <img src="assets/arrow-icon.svg">
+                </div>
+            </div>
+            <div class="content-container">
+                <div class="screenshoot">
+
+                </div>
+                <div class="title-container">
+                    <h1>
+
+                    </h1>
+                </div>
+                <div class="description-container">
+                    <p>
+
+                    </p>
+                </div>
+                <div class="button-container">
+                    <a target="_blank"><button>Abrir</button></a>
+                </div>
+            </div>
         </article>
         
         <article id='Sobre'>
@@ -128,104 +163,37 @@
         
         <article id="Contato">
             <header>Contato</header>
+            <div class="contato-container">
+                <div class="input-container">
+                    <div class="field">               
+                        <input id="name" type="text" required>
+                        <label for="name">Nome</label>
+                    </div>
+                    <div class="field">                      
+                        <input id="email" type="text" required>
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="assunto-container">
+                    <header class="completo">Assunto</header>
+                </div>
+                <div class="text-area-container">
+                    <textarea placeholder="Mensagem..."></textarea>
+                </div>
+                <div class="bottom-icons-container">
+                    <div class="icon"><img src="assets/contato/clear.svg"></div>
+                    <div class="icon"><img src="assets/contato/clip.svg"></div>
+                    <div class="icon"><img src="assets/contato/send.svg"></div>                    
+               </div>
+            </div>
         </article>
     </main>
     
     <script src="js/gumshoe.polyfills.min.js"></script>
     <script src="js/smooth-scroll.polyfills.min.js"></script>
     <script src="js/anime.min.js"></script>
-    <script>
-        let toggler = document.querySelector(".toggler-btn")
-        var listItems = document.querySelector("nav")
-        const toggleNavbar = ()=>{
-            if(window.innerWidth <= 768)
-            {
-                listItems.classList.toggle("expand")
-                toggler.classList.toggle("changed")
-            }
-            
-        }
-        toggler.addEventListener('click', toggleNavbar)
-        let Items = document.querySelectorAll("nav ul li")
-        Items.forEach(element=>{
-            element.addEventListener('click', toggleNavbar)
-        })
+    <script src="js/main.js">
 
-
-        const getVH = (i)=>{
-            return (window.innerHeight/100) * i
-        }
-        var spy = new Gumshoe('nav ul a',{
-	        offset: ()=>{return window.innerWidth===768?getVH(10.1):getVH(10.2)}
-        });
-        var scroll = new SmoothScroll('a[href*="#"]',{
-            offset: ()=>{return window.innerWidth===768?getVH(10.1):getVH(10.2)}
-        });
-
-        const getRandomNumber =(min, max)=>{
-            return Math.floor(Math.random() * (+max - +min)) + +min
-        }
-        var elements = document.querySelectorAll('#left-icons .cls-1, #right-icons .cls-1');
-        var counter;
-        setInterval(() => {
-            for(let i = 0; i<8; i++)
-            {
-                let indexElemento = getRandomNumber(0, elements.length)
-                let randomN = getRandomNumber(-10, 10)
-                anime({
-                    targets: elements[indexElemento],
-                    translateX: randomN,
-                    translateY: randomN,
-                    // rotate: randomR,
-                    easing: 'linear'
-                });
-            }
-            counter++;
-            if(counter === 8){
-                for(let i = 0; i<elements.length; i++)
-                {
-                    anime({
-                        targets: elements[i],
-                        translateX: 0,
-                        translateY: 0,
-                        // rotate: randomR,
-                        easing: 'linear'
-                    });
-                }
-            }
-            
-        }, 200);
-
-        let btns = document.querySelector('.btns')
-        let switcher = document.querySelector('.txtSwitcher')
-        let isSmall =  screen.width<=768;
-        const toggleSobre = ()=>{
-            btns.classList.toggle('inverted');
-            switcher.classList.toggle('switch');
-        }
-        const updateEvents = ()=>{
-            if (screen.width<=768)
-            {
-                btns.removeEventListener('click', toggleSobre)
-                btns.addEventListener('touchstart', toggleSobre)
-            }
-            else{
-                btns.removeEventListener('touchstart',toggleSobre)
-                btns.addEventListener('click', toggleSobre)
-            }
-        }
-        window.addEventListener('resize', updateEvents)
-        updateEvents();
-
-
-        window.addEventListener('scroll',()=>{
-            if(window.scrollY > getVH(80))
-                listItems.classList.remove('big')
-            else if (!listItems.classList.contains('big'))
-                listItems.classList.add('big')
-
-                
-        })
     </script>
 </body>
 </html>

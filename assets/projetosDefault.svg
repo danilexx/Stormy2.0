@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1296" height="1296" viewBox="0 0 1296 1296">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-Prancheta_5);
+      }
+
+      .cls-2 {
+        fill: #393e47;
+        font-size: 89px;
+        font-family: ComicSansMS, Comic Sans MS;
+      }
+
+      .cls-3 {
+        fill: none;
+        stroke: #393e47;
+        stroke-width: 5px;
+      }
+
+      .cls-4 {
+        fill: #fff;
+      }
+    </style>
+    <clipPath id="clip-Prancheta_5">
+      <rect width="1296" height="1296"/>
+    </clipPath>
+  </defs>
+  <g id="Prancheta_5" data-name="Prancheta – 5" class="cls-1">
+    <rect class="cls-4" width="1296" height="1296"/>
+    <text id="Selecione_um_projeto_" data-name="Selecione um projeto " class="cls-2" transform="translate(648 621.896)"><tspan x="-451.084" y="0">Selecione um projeto </tspan></text>
+    <g id="Agrupar_65" data-name="Agrupar 65" transform="translate(577.194 249.071)">
+      <path id="Caminho_64" data-name="Caminho 64" class="cls-3" d="M3945.448,2692.323l65.252-65.252,65.252,65.252" transform="translate(-3945.448 -2543.396)"/>
+      <path id="Caminho_65" data-name="Caminho 65" class="cls-3" d="M3945.448,2692.323l65.252-65.252,65.252,65.252" transform="translate(-3945.448 -2586.728)"/>
+      <path id="Caminho_66" data-name="Caminho 66" class="cls-3" d="M3945.448,2692.323l65.252-65.252,65.252,65.252" transform="translate(-3945.448 -2627.071)"/>
+    </g>
+  </g>
+</svg>
