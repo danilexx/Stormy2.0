@@ -114,7 +114,7 @@ const changeApp=(index)=>{
         screenshootURL: '../assets/projetos/ASPokemon.png',
         title: 'Pokemon ASP',
         description: 'Uma bibilioteca de pokemon',
-        buttonHref: 'https://www.github.com/', 
+        buttonHref: 'https://github.com/adnanioricce/PokemonOOP', 
     }
     appList.forEach(element=>{
         element.classList.remove("selected")
