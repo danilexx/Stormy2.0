@@ -1,0 +1,131 @@
+footer{
+    height: 40vh;
+    background-color: $primary;
+    border-top: 2px solid rgb(39, 43, 49);
+    @media (max-width: 768px){
+        height: 90.2vh;
+        border: none;
+    }
+}
+
+// <div class="footer-container">
+//     <div class="relacionados-container">
+//         <div class="title-relacionados-container"></div>
+//         <a data-scroll href="#Inicio">Inicio</a>
+//         <a data-scroll href="#Projetos">Projetos</a>
+//         <a data-scroll href="#Sobre">Sobre</a>
+//         <a data-scroll href="#Membros">Membros</a>
+//         <a data-scroll href="#Contato">Contato</a>
+//     </div>
+//     <div class="redes-sociais-container"></div>
+//     <div class="map-container">
+//         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.004012744221!2d-46.372319385022735!3d-23.532358084697268!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce659ea29fa4c1%3A0x10f5ad872072a18!2sRua+Carlos+de+Carvalho%2C+200%2C+Ferraz+de+Vasconcelos+-+SP!5e0!3m2!1spt-BR!2sbr!4v1551910338488"
+//         width="400" height="300" frameborder="0" style="border:0" allowfullscreen>
+//         </iframe>
+//     </div>
+//     <div class="bottom-container">Stormy © 2019</div>
+// </div>
+
+.footer-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 90% 10%;
+    height: 100%;
+    @media (max-width: 768px){
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 10%;
+        .title-container{
+            border-top: 2px solid rgb(39, 43, 49);
+        }
+    }
+    .title-container{
+        height: 20%;
+        border-bottom: 2px solid rgb(39, 43, 49);
+        // font-weight: bold;
+        @extend %flex;
+        font-size: 1.5rem;
+        color: white;
+    }
+}
+
+.secoes-container{
+    grid-column: 1;
+    grid-row: 1;
+    @media (max-width: 768px){
+        grid-column: 1;
+        grid-row: 1; 
+    }
+}
+.secoes{
+    @extend %flex;
+    flex-direction: column;
+    height: 80%;
+    a{
+        @extend %flex;
+        color: white;
+        font-size: 1.25rem;
+        width: 100%;
+        height: 20%;
+        text-align: center;
+        transition: background-color .5s ease-in-out;
+        &:hover{
+            background-color: rgba($color: #000000, $alpha: .2);
+        }
+    }
+}
+.redes-sociais-container{
+    grid-column: 2;
+    grid-row: 1;
+    border: 0 solid rgb(39, 43, 49);
+    border-width: 0 2px;
+    @media (max-width: 768px){
+        grid-column: 1;
+        grid-row: 2; 
+    }
+}
+.redes-sociais{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: fit-content;
+    width: fit-content;
+    margin: 0 auto;
+
+    @media (max-width: 768px){
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    img{
+        height: 64px;
+        width: 64px;
+    }
+}
+.container{
+    @extend %flex;
+    height: 80%;
+}
+.map-container{
+    grid-column: 3;
+    grid-row: 1;
+    @media (max-width: 768px){
+        grid-column: 1;
+        grid-row: 3; 
+    }
+    iframe{
+        width: 100%;
+        height: 80%;
+    }
+}
+.bottom-container{
+    grid-column: 1 / 3 span;
+    grid-row: 2;
+    @extend %flex;
+    color: white;
+    text-align: center;
+    border-top: 2px solid rgb(39, 43, 49);
+    @media (max-width: 768px){
+        grid-column: 1;
+        grid-row: 4; 
+    }
+}

@@ -220,6 +220,6 @@ clearButton.addEventListener('click', ()=>{
         element.value = '';
     })
 })
-// while (appList.length>5){
-
-// }
+window.onbeforeunload = ()=>{
+    window.scrollTo(0,0)
+}
