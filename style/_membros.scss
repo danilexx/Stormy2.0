@@ -1,0 +1,108 @@
+// <div class="membros-container">
+//     <div class="membro">
+//         <div class="profile-pic"><img src="assets/membros/Danilex-profile-pic.jpg" ></div>
+//         <div class="name-container">Danilo de Jesus</div>
+//         <div class="ocupation-container">Frontend</div>
+//         <div class="badges">
+//             <div class="badge-1"><img src="./assets/badges/javascript.svg"></div>
+//             <div class="badge-2"><img src="./assets/badges/css.svg"></div>
+//         </div>
+//     </div>
+// </div>
+.membros-container{
+    height: 88.9%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2px;
+    background-color: rgb(212, 212, 212);
+    @media (max-width: 768px){
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        border-bottom: 2px solid rgb(212, 212, 212);
+    }
+}
+.membro{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template: 33.3% 33.3% 33.3%;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    // border: 2px solid $primary;
+}
+.profile-pic{
+    grid-column: 1;
+    grid-row: 1/ 3 span;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    // img{
+    //     $size: 100%;
+    //     width: $size;
+    //     height: $size;
+    // }
+    @media (max-width:768px){
+        // background-size: contain;
+        background-position-y: 50%;
+    }
+}
+.profile-pic.primeiro{
+    background-image: url('/assets/membros/Danilex-profile-pic.jpg');
+}
+.profile-pic.segundo{
+    background-image: url('/assets/membros/Adnan-profile-pic.jpg');
+    @media (max-width:768px){
+        // background-size: contain;
+        background-position-y: 67%;
+    }
+}
+.profile-pic.terceiro{
+    background-image: url('/assets/membros/Mineiro-profile-pic.jpeg');
+    @media (max-width:768px){
+        // background-size: contain;
+        background-position-y: 26%;
+    }
+}
+.profile-pic.quarto{
+    background-image: url('/assets/membros/Megs.jpg');
+    @media (max-width:768px){
+        // background-size: contain;
+        background-position-y: 10%;
+        height: 19.2vh;
+    }
+}
+.name-container{
+    grid-column: 2;
+    grid-row: 1; 
+    @extend %flex;
+    font-size: 1rem; 
+    border-bottom: 2px solid rgb(212, 212, 212);
+}
+.ocupation-container{
+    grid-column: 2;
+    grid-row: 2;
+    @extend %flex;
+    border-bottom: 2px solid rgb(212, 212, 212);
+}
+.badges{
+    grid-column: 2;
+    grid-row: 3;
+    @extend %flex;
+    flex-direction: row;
+}
+.badge-1{
+    border-right: 2px solid rgb(212, 212, 212);
+}
+.badge-1, .badge-2{
+    width: 50%;
+    
+    @extend %flex;
+    @media (max-width: 768px) {
+        width: 20%;
+    }
+    img{
+        width: 50%;
+    }
+}
+

@@ -110,6 +110,12 @@ const changeApp=(index)=>{
         description: 'github lorem bla bla',
         buttonHref: 'https://www.github.com/',
     }
+    let pokemon = {
+        screenshootURL: '../assets/projetos/ASPokemon.png',
+        title: 'Pokemon ASP',
+        description: 'Uma bibilioteca de pokemon',
+        buttonHref: 'https://github.com/adnanioricce/PokemonOOP', 
+    }
     appList.forEach(element=>{
         element.classList.remove("selected")
     })
@@ -121,8 +127,8 @@ const changeApp=(index)=>{
     if(classesAlvo.contains('blue')){
         updateContent(blue)
     }
-    if(classesAlvo.contains('purple')){
-        updateContent(purple);
+    if(classesAlvo.contains('pokemon')){
+        updateContent(pokemon);
     }
 }
 const updateContent=(data)=>{
