@@ -26,9 +26,12 @@ article{
     border: 0 solid rgb(212, 212, 212);
     border-width: 0 2px;
     border-bottom-width: 2px;
+    transition: width .25s ease-in-out;
     @media screen and (max-width: 768px){
         width: 100%;
-        border: none;
+    }
+    &.active{
+        width: 100%;
     }
 }
 article:nth-of-type() header{
@@ -68,19 +71,32 @@ button{
     background-color: white;
     transition: all .5s ease-in-out;
     font-family: 'Roboto', sans-serif;
+    a{
+        color:  white;
+    }
     &:hover{
         background-color: $primary;
         color: white;
         transform: scale(1.2);
+        a{
+            color: $primary;
+            
+        }
     }
+
 
 }
 button.white{
     border: 3px solid white;
     color: white;
     background-color: $primary;
+    a{
+        color: white
+    }
         &:hover{
             background-color: white;
-            color: $primary;
+            a {
+                color: $primary;
+            }   
         }
     }

@@ -3,6 +3,8 @@ import SmoothScroll from 'smooth-scroll';
 
 //Istancia a Nav
 let navBar = document.querySelector("nav")
+//Instancializa o Botão Hamburguer
+let toggler = document.querySelector(".toggler-btn")
 
 //Expande ou Esconde a navBar no modo para celulares
 const toggleNavbar = event =>{
@@ -23,12 +25,11 @@ const toggleNavbar = event =>{
 const getVH = (i)=>(window.innerHeight/100) * i
 
 //Retorna o Offset da Navbar
-const getOffset = ()=>window.innerWidth===768?getVH(10.1):getVH(10.2)
+const getOffset = ()=>window.innerWidth===768?getVH(10):getVH(10.1)
 
 //Função que seta as interações da navbar
 export const navBarInteractions=()=>{
-    //Instancializa o Botão Hamburguer
-    let toggler = document.querySelector(".toggler-btn")
+
     //Da a função de click para o Botão Hamburguer
     toggler.addEventListener('click', toggleNavbar)
 
@@ -40,17 +41,23 @@ export const navBarInteractions=()=>{
     })
 
     //Instancializa o Gumshoe
-    let spy = new Gumshoe('navBar ul a',{offset: getOffset})
+    let spy = new Gumshoe('nav ul a', {offset: getOffset()})
 
     //Instancializa o SmoothScroll
-    let scroll = new SmoothScroll('a[href*="#"]',{offset: getOffset});
+    let scroll = new SmoothScroll('a[href*="#"]',{offset: getOffset()});
 
-    window.addEventListener('scroll',()=>{
-        if(window.scrollY > getVH(80))
-            navBar.classList.remove('big')
-        else if (!navBar.classList.contains('big'))
-            navBar.classList.add('big')
-    
-            
-    })
+    setInterval(()=>{
+            if(window.scrollY > getVH(20))
+                navBar.classList.remove('big')
+            else if (!navBar.classList.contains('big'))
+                navBar.classList.add('big')
+        },1);
+
+        window.addEventListener('scroll',()=>{
+            if(window.scrollY > getVH(80))
+                navBar.classList.remove('big')
+            else if (!navBar.classList.contains('big'))
+                navBar.classList.add('big')               
+        })
+
 }

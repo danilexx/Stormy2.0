@@ -2,17 +2,17 @@ let appList = document.querySelectorAll(".apps .app")
 
 const nextProject = () => {
     let indexAtual = getIndexAtual();
-    if(window.innerWidth<=768 && indexAtual>=2 && indexAtual<appList.length-1){
-        appList[indexAtual-2].style.display = 'none';
-        appList[indexAtual+1].style.display = 'block';
-    }
-    if(window.innerWidth<=768 && indexAtual===appList.length-1){
-        appList.forEach(element=>{
-            element.style.display = 'block';
-        })
-        appList[appList.length-1].style.display = 'none';
-        appList[appList.length-2].style.display = 'none';
-    }
+    // if(window.innerWidth<=768 && indexAtual>=2 && indexAtual<appList.length-1){
+    //     appList[indexAtual-2].style.display = 'none';
+    //     appList[indexAtual+1].style.display = 'block';
+    // }
+    // if(window.innerWidth<=768 && indexAtual===appList.length-1){
+    //     appList.forEach(element=>{
+    //         element.style.display = 'block';
+    //     })
+    //     appList[appList.length-1].style.display = 'none';
+    //     appList[appList.length-2].style.display = 'none';
+    // }
 
     if(indexAtual==appList.length-1){
         console.log('ultimo')
@@ -146,10 +146,12 @@ export const projetos=()=>{
         })
     })
 
-    let rightArrow = document.querySelector('.right-arrow-container')
-    let leftArrow  = document.querySelector('.left-arrow-container')
-    rightArrow.addEventListener('click', nextProject)
-    leftArrow.addEventListener('click', previousProject)
+    // let rightArrow = document.querySelector('.right-arrow-container')
+    // let leftArrow  = document.querySelector('.left-arrow-container')
+    // rightArrow.addEventListener('click', nextProject)
+    // leftArrow.addEventListener('click', previousProject)
 
-    window.addEventListener('resize', resizeEvent)
+    setInterval(nextProject, 2000);
+
+    // window.addEventListener('resize', resizeEvent)
 }

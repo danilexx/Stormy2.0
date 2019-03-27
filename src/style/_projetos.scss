@@ -27,7 +27,7 @@
 
 .appdrawner{
     @extend %flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     border-bottom: 2px solid #d4d4d4;
     --size: 15vh;
@@ -60,11 +60,11 @@
     opacity: .1;
     transition: opacity 0.6s linear;
     margin: 0 auto;
-    @media (max-width: 768px){
-        &.app:nth-of-type(4),&.app:nth-of-type(5){
-            display: none;
-        }
-    }
+    // @media (max-width: 768px){
+    //     &.app:nth-of-type(4),&.app:nth-of-type(5){
+    //         display: none;
+    //     }
+    // }
     &.selected{
         opacity: 1;
     }
