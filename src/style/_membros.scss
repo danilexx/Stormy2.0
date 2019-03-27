@@ -48,24 +48,24 @@
     }
 }
 .profile-pic.primeiro{
-    background-image: url('/assets/membros/Danilex-profile-pic.jpg');
+    background-image: url('../assets/membros/Danilex-profile-pic.jpg');
 }
 .profile-pic.segundo{
-    background-image: url('/assets/membros/Adnan-profile-pic.jpg');
+    background-image: url('../assets/membros/Adnan-profile-pic.jpg');
     @media (max-width:768px){
         // background-size: contain;
         background-position-y: 67%;
     }
 }
 .profile-pic.terceiro{
-    background-image: url('/assets/membros/Mineiro-profile-pic.jpeg');
+    background-image: url('../assets/membros/Mineiro-profile-pic.jpeg');
     @media (max-width:768px){
         // background-size: contain;
         background-position-y: 26%;
     }
 }
 .profile-pic.quarto{
-    background-image: url('/assets/membros/Megs.jpg');
+    background-image: url('../assets/membros/Megs.jpg');
     @media (max-width:768px){
         // background-size: contain;
         background-position-y: 10%;

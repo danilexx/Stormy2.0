@@ -1,3 +1,5 @@
+
+
 // <div class="appdrawner">
 //     <div class="left-arrow-container">
 //         <img src="assets/arrow-icon.svg">
@@ -134,7 +136,7 @@
 .screenshoot{
     grid-column: 1;
     grid-row: 1/ 3 span;
-    background-image: url('../assets/projetosDefault.svg');
+    background-image: url('../assets/projetos/projetosDefault.svg');
     background-color: white;
     background-repeat: no-repeat;
     background-size: contain;
@@ -142,10 +144,14 @@
     border: 0 solid #d4d4d4;
     border-width: 0 2px 2px 0;
     @media (max-width: 768px){
-        background-image: url('../assets/projetosDefaultMobile.svg');
+        background-image: url('../assets/projetos/projetosDefaultMobile.svg');
         border-right: none;
         grid-column: 1;
         grid-row: 3;
+    } 
+    
+    &.pokemon{
+        background-image: url('../assets/projetos/ASPokemon.png');
     }
 }
 .title-container{
@@ -188,3 +194,4 @@
         padding: 10px;
     }
 }
+
