@@ -2,7 +2,7 @@
 
 .overlay{
     position: absolute;
-    animation: fade-out 1s forwards 4s;
+    animation: fade-out 1s forwards 3s;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,12 +11,12 @@
     background-color: #393e47;
     z-index: 100;
     top: 0;
-    display: none;
+    // display: none;
 
 }
 body{
-    // animation: overflow-pop .1s forwards 4.25s;
-    // overflow: hidden;
+    animation: overflow-pop .1s forwards 3.1s;
+    overflow: hidden;
     @keyframes overflow-pop {
         to{
             overflow-y: scroll
@@ -26,64 +26,59 @@ body{
 
 #splash{
     height: 20%;
+    transform: scale(1.5);
     @media (min-width: 768px){
         padding: 0 50px;
     }
-    .cls-1 {
-        fill: #393e47;
-        stroke: #fff;
-        stroke-width: 10px;
-        stroke-dasharray: 1565.4127197265625;
-        stroke-dashoffset: 1565.4127197265625;
-        animation: drawn 2.5s linear forwards;
-    }
+    .cls-1{fill:#7fe7ff;}
+    .cls-2{fill:#292c33;}
+    .cls-3{fill:#393e47;}
+    .cls-4{fill:#fff;}
 
-    .cls-1, .cls-3 {
-        stroke-miterlimit: 10;
-    }
+
 
     .cls-2{
-        fill: transparent;
-        transform: translateY(-50%);
-        animation: color 1s linear forwards 1.5s, fade-in .5s ease-in-out forwards 1.5s;
+        animation: fade-in 1s ease-in-out forwards .5s;
+        opacity: 0;
+
+    }
+    .s, .t, .o, .r, .m{
+        animation: fade-in 1s linear forwards;
+        opacity: 0;
+        will-change: opacity;
+    }
+    .t{
+        animation-delay: .25s;
+    }
+    .o{
+        animation-delay: .5s;
+    }
+    .r{
+        animation-delay: .75s;
+    }
+    .m{
+        animation-delay: 1s;
+    }
+    .y, .cls-1{
+        will-change: transform;
+        opacity: 0;
+        transform: translate(40px, -80px);
+        animation: slide 1s linear forwards 1s, fade-in 1s linear forwards 1s;
     }
 
-    .cls-3 {
-        stroke: white;
-        fill: transparent;
-        stroke-width: 2px;
-        stroke-dasharray: 590.8768920898438;
-        stroke-dashoffset: 590.8768920898438;
-        transform: translate(5%, -5%);
-        animation: drawn 2s linear forwards,
-        fade-in .5s linear forwards,
-        color .5s linear forwards 2s,
-        stroke-color .5s linear forwards 2s;
+    @keyframes slide {
+        to{
+            transform: translate(0, 0);
+        }
     }
 
-    @keyframes stroke-color {
+    @keyframes fade-in {
         to {
-            stroke: $primary;
+            opacity: 1;
         }
     }
 
-    @keyframes fade-in{
-        to{
-            transform: translate(0);
-        }
-    }
 
-    @keyframes color{
-        to{
-            fill: white;
-        }
-    }
-
-    @keyframes drawn{
-        to{
-            stroke-dashoffset: 0;
-        }
-    }
 
     @keyframes fade-out {
         from {
@@ -93,7 +88,7 @@ body{
             opacity: 0;
             
         }
-        to{
+        100%{
             visibility: hidden;
         }
     }

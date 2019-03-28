@@ -30,8 +30,8 @@
     justify-content: center;
     width: 100%;
     border-bottom: 2px solid #d4d4d4;
-    --size: 15vh;
-    height: var(--size);
+    --size: 13vh;
+    height: 15vh;
     @media (max-width: 768px){
         --size: 10vh;
     }
@@ -47,6 +47,7 @@
         gap: 0;
     }
     overflow: hidden;
+
 }
 .app{
     cursor: pointer;
@@ -59,15 +60,33 @@
     // border-radius: 30%;
     opacity: .1;
     transition: opacity 0.6s linear;
-    margin: 0 auto;
+    margin: 1vh auto;
     // @media (max-width: 768px){
     //     &.app:nth-of-type(4),&.app:nth-of-type(5){
     //         display: none;
     //     }
-    // }
+    // } 
+    &:hover{
+        opacity: .5;
+    }
     &.selected{
         opacity: 1;
     }
+}
+.audlePlayer{
+    background: url(../assets/projetos/icons/audlePlayerIcon.svg);
+}
+.consumoCerto{
+    background: url(../assets/projetos/icons/consumoCertoIcon.svg);
+}
+.pokemon{
+    background: url(../assets/projetos/icons/pokemonIcon.svg);
+}
+.reactCalc{
+    background: url(../assets/projetos/icons/reactCalcIcon.svg);
+}
+.withoff{
+    background: url(../assets/projetos/icons/withoffIcon.svg);
 }
 [class*="arrow-container"]{
     @extend %flex;
@@ -91,15 +110,7 @@
         transform: rotate(180deg)
     }
 }
-.red{
-    background-color: red;
-}
-.blue{
-    background-color: blue;
-}
-.purple{
-    background-color: purple;
-}
+
 
 // <div class="content-container">
 //     <div class="screenshoot"></div>
@@ -130,7 +141,7 @@
     @media (max-width:768px) {
         height: 70vh;
         grid-template-columns: 1fr;
-        grid-template-rows: 10% 25% 50% 15%; 
+        grid-template-rows: 10% 15% 45% 25%;
     }
 }
 .screenshoot{
@@ -151,7 +162,19 @@
     } 
     
     &.pokemon{
-        background-image: url('../assets/projetos/ASPokemon.png');
+        background-image: url('../assets/projetos/screenshots/ASPokemon.png');
+    }
+    &.withoff{
+        background-image: url('../assets/projetos/screenshots/WitthoeftScreen.png');
+    }
+    &.reactCalc{
+        background-image: url('../assets/projetos/screenshots/ReactCalculator.png');
+    }
+    &.audlePlayer{
+        background-image: url('../assets/projetos/screenshots/aldle.jpeg');
+    }
+    &.consumoCerto{
+        background-image: url('../assets/projetos/screenshots/consumoCerto.jpeg');
     }
 }
 .title-container{

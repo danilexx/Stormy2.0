@@ -1,6 +1,8 @@
 let appList = document.querySelectorAll(".apps .app")
-
-const nextProject = () => {
+const nextProject = (e) => {
+    console.log(e);
+    if(e)
+        console.log(manualmente);
     let indexAtual = getIndexAtual();
     // if(window.innerWidth<=768 && indexAtual>=2 && indexAtual<appList.length-1){
     //     appList[indexAtual-2].style.display = 'none';
@@ -56,22 +58,22 @@ const getIndexAtual=()=>{
 
 const changeApp=(index)=>{
 
-    let red = {
-        screenshootURL: 'google',
-        title: 'google',
-        description: 'google lorem bla bla',
+    let reactCalc = {
+        screenshootURL: 'reactCalc',
+        title: 'React Calculator',
+        description: 'Uma calculadora simples feita com React',
         buttonHref: 'https://www.google.com/',
     }
-    let blue = {
-        screenshootURL: 'facebook',
-        title: 'facebook',
-        description: 'facebook lorem bla bla',
+    let withoff = {
+        screenshootURL: 'withoff',
+        title: 'Withofft',
+        description: 'Ecommerce voltado a pessoas jovens e descoladas como você que esta lendo',
         buttonHref: 'https://www.facebook.com/',
     }
-    let purple = {
-        screenshootURL: 'github',
-        title: 'github',
-        description: 'github lorem bla bla',
+    let audlePlayer = {
+        screenshootURL: 'audlePlayer',
+        title: 'Audle Music Player',
+        description: 'Um music player comum',
         buttonHref: 'https://www.github.com/',
     }
     let pokemon = {
@@ -80,69 +82,58 @@ const changeApp=(index)=>{
         description: 'Uma bibilioteca de pokemon',
         buttonHref: 'https://github.com/adnanioricce/PokemonOOP', 
     }
+    let consumoCerto = {
+        screenshootURL: 'consumoCerto',
+        title: 'Consumo Certo',
+        description: 'Uma aplicativo para calcular seus gastos',
+        buttonHref: 'https://github.com/adnanioricce/PokemonOOP', 
+    }
     appList.forEach(element=>{
         element.classList.remove("selected")
     })
     appList[index].classList.add('selected')
 
-    if(appList[index].classList.contains('red')){
-        updateContent(red)
+    if(appList[index].classList.contains('consumoCerto')){
+        updateContent(consumoCerto)
     }
-    if(appList[index].classList.contains('blue')){
-        updateContent(blue)
+    if(appList[index].classList.contains('reactCalc')){
+        updateContent(reactCalc)
+    }
+    if(appList[index].classList.contains('withoff')){
+        updateContent(withoff);
+    }
+    if(appList[index].classList.contains('audlePlayer')){
+        updateContent(audlePlayer);
     }
     if(appList[index].classList.contains('pokemon')){
         updateContent(pokemon);
     }
+    
 }
-var screenshoot = document.querySelector('.screenshoot');
+
 const updateContent=(data)=>{
     console.log(data)
     let title = document.querySelector('.title-container h1');
     let description = document.querySelector('.description-container p');
-    
+    let screenshoot = document.querySelector('.screenshoot');
     let button = document.querySelector('.button-container a');
     title.innerHTML = data.title;
     description.innerHTML = data.description;
-
-    let listaProjetos = ['google', 'facebook', 'pokemom','google','pokemon']
-    listaProjetos.forEach(elemento=>{
-        screenshoot.classList.remove(elemento)
-    })
-
-    screenshoot.classList.add(data.screenshootURL);
-
-    
+    screenshoot.className = `screenshoot ${data.screenshootURL}`;
     button.href = data.buttonHref;
 }
 
-const resizeEvent=()=>{
-    let indexAtual = getIndexAtual();
-    if(window.innerWidth <= 768){
-        console.log('oi')
-        appList[appList.length-1].style.display = 'none';
-        appList[appList.length-2].style.display = 'none';
-        if(indexAtual>2)
-            changeApp(0);
-    }
-    else{
-        appList.forEach(element=>{
-            element.style.display = 'block';
-        })
-    }
-}
-
-
-
-
-
-
-
+let timer
 
 export const projetos=()=>{
+    timer = setInterval(nextProject, 2000)
     appList.forEach((element, index)=>{
         element.addEventListener('click', ()=>{
             changeApp(index);
+            clearInterval(timer);
+            setTimeout(() => {
+                timer = setInterval(nextProject, 2000)
+            }, 4000);
         })
     })
 
@@ -151,7 +142,7 @@ export const projetos=()=>{
     // rightArrow.addEventListener('click', nextProject)
     // leftArrow.addEventListener('click', previousProject)
 
-    setInterval(nextProject, 2000);
-
+    
+    
     // window.addEventListener('resize', resizeEvent)
 }
