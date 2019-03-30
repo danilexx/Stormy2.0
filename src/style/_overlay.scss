@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Fredoka+One');
 
 .overlay{
-    position: absolute;
-    animation: fade-out 1s forwards 3s;
+    position: fixed;
+    // animation: fade-out 1s forwards 3s;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,12 +11,12 @@
     background-color: #393e47;
     z-index: 100;
     top: 0;
-    // display: none;
+    display: none;
 
 }
 body{
-    animation: overflow-pop .1s forwards 3.1s;
-    overflow: hidden;
+    // animation: overflow-pop .1s forwards 3.1s;
+    // overflow: hidden;
     @keyframes overflow-pop {
         to{
             overflow-y: scroll
@@ -38,14 +38,16 @@ body{
 
 
     .cls-2{
-        animation: fade-in 1s ease-in-out forwards .5s;
-        opacity: 0;
+        // animation: fade-in 1s ease-in-out forwards .5s;
+        // opacity: 0;
 
     }
     .s, .t, .o, .r, .m{
-        animation: fade-in 1s linear forwards;
-        opacity: 0;
-        will-change: opacity;
+        // animation: fade-in 1s linear forwards;
+        transform-origin: center;
+        transform-box: fill-box;
+        opacity: 0; 
+        will-change: opacity, transform;
     }
     .t{
         animation-delay: .25s;
@@ -60,10 +62,10 @@ body{
         animation-delay: 1s;
     }
     .y, .cls-1{
-        will-change: transform;
-        opacity: 0;
-        transform: translate(40px, -80px);
-        animation: slide 1s linear forwards 1s, fade-in 1s linear forwards 1s;
+        // will-change: transform;
+        // opacity: 0;
+        // transform: translate(40px, -80px);
+        // animation: slide 1s linear forwards 1s, fade-in 1s linear forwards 1s;
     }
 
     @keyframes slide {

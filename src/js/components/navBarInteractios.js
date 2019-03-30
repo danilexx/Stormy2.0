@@ -51,6 +51,12 @@ export const navBarInteractions=()=>{
                 navBar.classList.remove('big')
             else if (!navBar.classList.contains('big'))
                 navBar.classList.add('big')
+
+            if(window.scrollY > getVH(10))
+                document.querySelector(".backToTop").style.display = 'flex';
+            else{
+                document.querySelector(".backToTop").style.display = 'none';
+            }
         },1);
 
         window.addEventListener('scroll',()=>{

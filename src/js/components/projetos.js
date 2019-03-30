@@ -126,14 +126,17 @@ const updateContent=(data)=>{
 let timer
 
 export const projetos=()=>{
-    timer = setInterval(nextProject, 2000)
+    let i = 2000;
+    timer = setInterval(nextProject, i)
     appList.forEach((element, index)=>{
         element.addEventListener('click', ()=>{
             changeApp(index);
             clearInterval(timer);
-            setTimeout(() => {
-                timer = setInterval(nextProject, 2000)
-            }, 4000);
+            let time = setTimeout(() => {
+                clearInterval(timer);
+                timer = setInterval(nextProject, i)
+            }, 2000);
+            
         })
     })
 
