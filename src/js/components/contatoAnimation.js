@@ -3,26 +3,25 @@ export const setContato = ()=>{
     let btnLast = document.querySelector('.icon:last-of-type');
     let btnFirst = document.querySelector('.icon:first-of-type');
     let btnMiddle = document.querySelector('.icon:nth-of-type(2)')
-    let icone = document.querySelector('.icon:last-of-type');
     let running
     btnFirst.addEventListener('click', ()=>{
         if(!running){
             anime({
-                targets: btnFirst,
-                scale: 2,
+                targets: '.icon:first-of-type img',
+                scale: 1.5,
                 opacity: 0,
                 duration: 1000,
                 begin: ()=>{
-                    running=true;
+                    running = true;
                 },
                 complete:()=>{
-                    btnFirst.style.transform = 'scale(1)';
                     anime({
-                        targets: btnFirst,
+                        targets: '.icon:first-of-type img',
                         opacity: 1,
+                        scale: 1,
                         duration: 1000,
                         complete: ()=>{
-                            running=false
+                            running = false
                         }
                     })
                 }
@@ -34,15 +33,19 @@ export const setContato = ()=>{
     btnMiddle.addEventListener('click', ()=>{
         if(!running){
             anime({
-                targets: btnMiddle,
-                rotate: '-60deg',
+                targets: '.icon:nth-of-type(2) img',
+                rotate: '-90deg',
                 duration: 1000,
+                begin: ()=>{
+                    running = true;
+                },
                 complete: ()=>{
                     anime({
-                        targets: btnMiddle,
+                        targets: '.icon:nth-of-type(2) img',
                         rotate: '0',
                         duration: 1000,
                     })
+                    running = false;
                 }
             })
         }
@@ -53,18 +56,19 @@ export const setContato = ()=>{
     btnLast.addEventListener('click', ()=>{
         if(!running){
             anime({
-                targets: icone,
-                backgroundPositionX: ['50%',"200%"],
+                targets: '.icon:last-of-type img',
+                translateX: "400%",
                 duration: 1000,
                 easing: 'easeInOutElastic(1, .5)',
                 begin: ()=>{
                     running = true;
+                    document.body.style.overflowX = 'none';
                 },
                 complete: ()=>{                    
-                    icone.style.opacity = 0;
-                    icone.style.backgroundPosition = '50%, 50%';
+                    document.querySelector('.icon:last-of-type img').style.opacity = 0;
+                    document.querySelector('.icon:last-of-type img').style.transform = "translateX(0)";
                     anime({
-                        targets: icone,
+                        targets: '.icon:last-of-type img',
                         opacity: 1,
                         duration: 1000,
                     });
@@ -75,27 +79,5 @@ export const setContato = ()=>{
         }
 
     })
-
-
-    let btns = document.querySelectorAll('.icon, .backToTop, .app, .ValoresContainer');
-
-    for (var i = 0; i < btns.length; i++) {
-        btns[i].onmousedown = function(e) {
-            e.stopPropagation();
-            var rect = e.target.getBoundingClientRect();
-            var x = e.clientX - rect.left,
-                y = e.clientY - rect.top,
-                w = this.offsetWidth;
-            var ripple = document.createElement('span');
-            ripple.className = 'ripple';
-            ripple.style.left = x + 'px';
-            ripple.style.top  = y + 'px';
-            ripple.style.setProperty('--scale', w);
-            this.appendChild(ripple);
-            setTimeout(function() {
-                ripple.parentNode.removeChild(ripple);
-            }, 500);
-    }
-}
 
 }

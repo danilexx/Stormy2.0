@@ -25,28 +25,28 @@
     align-items: center;
 }
 
-.appdrawner{
-    @extend %flex;
-    justify-content: center;
+.appdrawner{ 
     width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     border-bottom: 2px solid #d4d4d4;
-    --size: 13vh;
+    --size: 95%;
     height: 15vh;
-    @media (max-width: 768px){
-        --size: 7vh;
-    }
+
 }
 .apps{
 
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-row: 1fr;
-    height: 100%;
-    column-gap: 10px;
-    @media (max-width: 768px){
-        // grid-template-columns: 1fr 1fr 1fr; 
-        gap: 0;
-    }
+    width: inherit;
+    height: inherit;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+
     overflow: hidden;
 
 }
@@ -54,8 +54,10 @@
     overflow: hidden;
     position: relative;
     cursor: pointer;
-    min-height: var(--size);
-    min-width: var(--size);
+    height: var(--size);
+    width: var(--size);
+    background-repeat: no-repeat;
+    background-position: center;
     // max-height: 15vh;
     // max-width: 15vh;
     // height: 10vw;
@@ -63,7 +65,7 @@
     // border-radius: 30%;
     opacity: .1;
     transition: opacity 0.6s linear;
-    margin: 1vh auto;
+    margin: 5% auto;
     // @media (max-width: 768px){
     //     &.app:nth-of-type(4),&.app:nth-of-type(5){
     //         display: none;
@@ -77,20 +79,21 @@
     }
 }
 .audlePlayer{
-    background: url(../assets/projetos/icons/audlePlayerIcon.svg);
+    background-image: url(../assets/projetos/icons/audlePlayerIcon.svg);
 }
 .consumoCerto{
-    background: url(../assets/projetos/icons/consumoCertoIcon.svg);
+    background-image: url(../assets/projetos/icons/consumoCertoIcon.svg);
 }
 .pokemon{
-    background: url(../assets/projetos/icons/pokemonIcon.svg);
+    background-image: url(../assets/projetos/icons/pokemonIcon.svg);
 }
 .reactCalc{
-    background: url(../assets/projetos/icons/reactCalcIcon.svg);
+    background-image: url(../assets/projetos/icons/reactCalcIcon.svg);
 }
 .withoff{
-    background: url(../assets/projetos/icons/withoffIcon.svg);
+    background-image: url(../assets/projetos/icons/withoffIcon.svg);
 }
+
 [class*="arrow-container"]{
     @extend %flex;
     cursor: pointer;
@@ -150,15 +153,26 @@
 .screenshoot{
     grid-column: 1;
     grid-row: 1/ 3 span;
-    background-image: url('../assets/projetos/projetosDefault.svg');
+    // background-image: url('../assets/projetos/projetosDefault.svg');
+    position: relative;
+    background-origin: border-box;
     background-color: white;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
     border: 0 solid #d4d4d4;
     border-width: 0 2px 2px 0;
+    transition: .5s ease-in-out;
+    transition-property: background-color;
+    cursor: pointer;
+    .ripple{
+        border-radius: 50%;
+    }
+    &:hover{
+        background-color : rgba(0, 0, 0, .6);
+    }
     @media (max-width: 768px){
-        background-image: url('../assets/projetos/projetosDefaultMobile.svg');
+        // background-image: url('../assets/projetos/projetosDefaultMobile.svg');
         border-right: none;
         grid-column: 1;
         grid-row: 3;
@@ -178,6 +192,17 @@
     }
     &.consumoCerto{
         background-image: url('../assets/projetos/screenshots/consumoCerto.jpeg');
+    }
+    &.over{
+        position : fixed;
+        height : 101%;
+        width : 101%;
+        top : calc(50% - 50%);
+        left : calc(50% - 50%);
+        background-color : rgba(0, 0, 0, .9);
+        z-index : 10;
+        cursor: default;
+        // opacity : 0;
     }
 }
 .title-container{
@@ -218,6 +243,24 @@
         grid-column: 1;
         grid-row: 4;
         padding: 10px;
+    }
+}
+
+.closeBtn{
+    background-image: url('../assets/contato/clear.svg');
+    cursor: pointer;
+    background-size: 32px;
+    width: 64px;
+    height: 64px;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 11;
+    transition: all .5s ease-in-out;
+    &:hover{
+        background-color: rgba($color: red, $alpha: .8)
     }
 }
 

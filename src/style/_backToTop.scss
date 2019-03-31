@@ -1,12 +1,13 @@
 .backToTop{
     background: url('../assets/backToTop/arrowUp.svg') no-repeat, $primary;
-    background-position: center;
+    background-position-x: 50%;
+    background-position-y: -100%;
     background-size: 32px;
     border-radius: 50%;
     position: fixed;
     overflow: hidden;
-    bottom: 64px;
-    right: 64px;
+    bottom: 32px;
+    right: 0px;
     z-index: 1000;
     margin: 32px;
     height: 64px;
@@ -31,5 +32,6 @@
     &.show{
         visibility: visible;
         opacity: 1;
+        background-position-y: 50%;
     }
 }

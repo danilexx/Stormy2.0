@@ -23,7 +23,7 @@ const toggleNavbar = event =>{
 }
 
 //Retorna ViewPort Height do valor no parametro
-const getVH = (i)=>(window.innerHeight/100) * i
+export const getVH = (i)=>(window.innerHeight/100) * i
 
 //Retorna o Offset da Navbar
 const getOffset = ()=>window.innerWidth<=768?getVH(10.1):0;

@@ -42,4 +42,4 @@ export const setIntro=()=>{
         overlay.style.display = "none";
         document.querySelector("body").style.overflowY = 'auto';
     },3500)
-}
+} 

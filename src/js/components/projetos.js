@@ -1,62 +1,33 @@
+import anime from 'animejs/lib/anime.es.js';
 let appList = document.querySelectorAll(".apps .app")
-const nextProject = (e) => {
-    console.log(e);
-    if(e)
-        console.log(manualmente);
-    let indexAtual = getIndexAtual();
-    // if(window.innerWidth<=768 && indexAtual>=2 && indexAtual<appList.length-1){
-    //     appList[indexAtual-2].style.display = 'none';
-    //     appList[indexAtual+1].style.display = 'block';
-    // }
-    // if(window.innerWidth<=768 && indexAtual===appList.length-1){
-    //     appList.forEach(element=>{
-    //         element.style.display = 'block';
-    //     })
-    //     appList[appList.length-1].style.display = 'none';
-    //     appList[appList.length-2].style.display = 'none';
-    // }
 
-    if(indexAtual==appList.length-1){
-        console.log('ultimo')
+const nextProject = () => {
+    let indexAtual = getIndexAtual();
+    if (indexAtual == appList.length - 1) {
         changeApp(0);
-    } 
-    else{
+    } else {
         changeApp(++indexAtual);
-    }       
+    }
 }
 const previousProject = () => {
     let indexAtual = getIndexAtual();
-
-    if(window.innerWidth<=768 && indexAtual<3 && indexAtual>0){
-        appList[indexAtual-1].style.display = 'block';
-        appList[indexAtual+2].style.display = 'none';
-    }
-    if(window.innerWidth<=768 && indexAtual==0){
-        appList.forEach(element=>{
-            element.style.display = 'none';
-        })
-        appList[appList.length-1].style.display = 'block';
-        appList[appList.length-2].style.display = 'block';
-        appList[appList.length-3].style.display = 'block';
-        changeApp(appList.length-1);
-    } 
-    if(indexAtual==0){
-        changeApp(appList.length-1);
-    } 
-    else{
+    if (indexAtual == 0) {
+        changeApp(appList.length - 1);
+    } else {
         changeApp(--indexAtual);
-    }       
+    }
 }
 
-const getIndexAtual=()=>{
-    for(let i = 0; i<appList.length; ++i){
-        if (appList[i].classList.contains("selected")){
+const getIndexAtual = () => {
+    //TODO trocar por alguma high order function
+    for (let i = 0; i < appList.length; ++i) {
+        if (appList[i].classList.contains("selected")) {
             return i;
-        } 
-    }   
+        }
+    }
 }
 
-const changeApp=(index)=>{
+const changeApp = (index) => {
 
     let reactCalc = {
         screenshootURL: 'reactCalc',
@@ -80,63 +51,67 @@ const changeApp=(index)=>{
         screenshootURL: 'pokemon',
         title: 'Pokemon ASP',
         description: 'Uma bibilioteca de pokemon',
-        buttonHref: 'https://github.com/adnanioricce/PokemonOOP', 
+        buttonHref: 'https://github.com/adnanioricce/PokemonOOP',
     }
     let consumoCerto = {
         screenshootURL: 'consumoCerto',
         title: 'Consumo Certo',
         description: 'Uma aplicativo para calcular seus gastos',
-        buttonHref: 'https://github.com/adnanioricce/PokemonOOP', 
+        buttonHref: 'https://github.com/adnanioricce/PokemonOOP',
     }
-    appList.forEach(element=>{
+    appList.forEach(element => {
         element.classList.remove("selected")
     })
     appList[index].classList.add('selected')
 
-    if(appList[index].classList.contains('consumoCerto')){
+    if (appList[index].classList.contains('consumoCerto')) {
         updateContent(consumoCerto)
     }
-    if(appList[index].classList.contains('reactCalc')){
+    if (appList[index].classList.contains('reactCalc')) {
         updateContent(reactCalc)
     }
-    if(appList[index].classList.contains('withoff')){
+    if (appList[index].classList.contains('withoff')) {
         updateContent(withoff);
     }
-    if(appList[index].classList.contains('audlePlayer')){
+    if (appList[index].classList.contains('audlePlayer')) {
         updateContent(audlePlayer);
     }
-    if(appList[index].classList.contains('pokemon')){
+    if (appList[index].classList.contains('pokemon')) {
         updateContent(pokemon);
     }
-    
+
 }
 
-const updateContent=(data)=>{
-    console.log(data)
+const updateContent = (data) => {
     let title = document.querySelector('.title-container h1');
     let description = document.querySelector('.description-container p');
     let screenshoot = document.querySelector('.screenshoot');
     let button = document.querySelector('.button-container a');
     title.innerHTML = data.title;
     description.innerHTML = data.description;
-    screenshoot.className = `screenshoot ${data.screenshootURL}`;
+    let list = ['consumoCerto', 'reactCalc', 'withoff', 'audlePlayer', 'pokemon']
+    list.forEach((e)=>{
+        screenshoot.classList.remove(e)
+    })
+    screenshoot.classList.add(data.screenshootURL);
     button.href = data.buttonHref;
 }
 
-let timer
 
-export const projetos=()=>{
-    let i = 2000;
+export const projetos = () => {
+    var i = 2000;
+    var timer
+    var time
     timer = setInterval(nextProject, i)
-    appList.forEach((element, index)=>{
-        element.addEventListener('click', ()=>{
+    appList.forEach((element, index) => {
+        element.addEventListener('click', () => {
             changeApp(index);
             clearInterval(timer);
-            let time = setTimeout(() => {
+            time = setTimeout(() => {
                 clearInterval(timer);
                 timer = setInterval(nextProject, i)
             }, 2000);
-            
+
         })
     })
 
@@ -145,7 +120,106 @@ export const projetos=()=>{
     // rightArrow.addEventListener('click', nextProject)
     // leftArrow.addEventListener('click', previousProject)
 
-    
-    
+
+
     // window.addEventListener('resize', resizeEvent)
+    var running = false;
+    //Hero Animation/Interaction
+    const togglarImg = () => {
+        let img = document.querySelector('.screenshoot');
+
+        
+        console.log(running)
+        // if(running)
+        //     return false
+        if (!running) {
+            if (img.classList.contains('over')) {
+                anime({
+                    targets: img,
+                    opacity: 0,
+                    duration: 500,
+                    easing: 'linear',
+                    begin: () => {
+                        document.querySelector("body").style.overflowY = 'auto';
+                        document.querySelector('.backToTop').style.visibility = '';
+                        document.querySelector('.backToTop').style.opacity = '';
+                        running = true
+                    },
+                    complete: () => {
+                        img.classList.remove('over'),
+                            anime({
+                                targets: img,
+                                opacity: 1,
+                                duration: 500,
+                                easing: 'linear',
+                            })
+                        running = false;
+                        clearInterval(timer);                        
+                        setTimeout(() => {
+                            clearInterval(timer);
+                            timer = setInterval(nextProject, i)
+                        }, 2000);
+                    }
+                })
+            } else {
+                clearInterval(timer);
+                clearTimeout(time);
+                anime({
+                    targets: img,
+                    opacity: 0,
+                    duration: 500,
+                    easing: 'linear',
+                    begin: () => {
+                        running = true;
+                        document.querySelector('.backToTop').style.visibility = 'hidden';
+                        document.querySelector('.backToTop').style.opacity = '0';
+                    },
+                    complete: () => {
+                        anime({
+                            targets: img,
+                            opacity: 1,
+                            duration: 500,
+                            easing: 'linear',
+                        })
+                        img.classList.add('over');
+                        document.querySelector("body").style.overflowY = 'hidden';
+                        running = false;
+
+                    }
+
+                })
+            }
+        }
+
+    }
+    const zoom = () => {
+        let img = document.querySelector('.screenshoot')
+        togglarImg();
+        if(running)
+            return false
+
+        let close = document.querySelector('.closeBtn');
+        if (close) {
+            document.body.removeChild(close);
+            img.removeEventListener('click', zoom);
+            setTimeout(() => {
+                img.addEventListener('click', zoom)
+            }, 1000)
+        } else {
+            let close = document.createElement('div');
+            close.classList.add('closeBtn')
+            close.addEventListener('click', zoom);
+            document.body.appendChild(close);
+        }
+
+
+
+
+
+
+
+    }
+    let img = document.querySelector('.screenshoot')
+    img.addEventListener('click', zoom)
+
 }
