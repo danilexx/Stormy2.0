@@ -36,6 +36,7 @@
     "clean-webpack-plugin": "^2.0.0",
     "gumshoejs": "^5.1.0",
     "sass": "^1.17.3",
-    "smooth-scroll": "^16.0.3"
+    "smooth-scroll": "^16.0.3",
+    "vanilla-ripplejs": "^1.0.6"
   }
 }

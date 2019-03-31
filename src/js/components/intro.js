@@ -40,6 +40,6 @@ export const setIntro=()=>{
     })
     setTimeout(()=>{
         overlay.style.display = "none";
-        // document.querySelector("body").style.overflowY = 'auto';
+        document.querySelector("body").style.overflowY = 'auto';
     },3500)
 }

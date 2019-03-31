@@ -26,11 +26,12 @@
 
 .contato-container{
     display: grid;
-    height: 80vh;
+    height: 90vh;
     grid-template-columns: 1fr;
     grid-template-rows: 20% 10% 55% 15%;
-    @media (max-width: 768px){
+    @media screen and (max-width: 768px){
         grid-template-rows: 20% 15% 50% 15%; 
+        height: 80vh;
     }
     header{
         height: 100%;
@@ -63,7 +64,7 @@
     margin: 2px 10px;
     font-family: 'Roboto', sans-serif;
     input{
-        border-radius: 20px;
+        border-radius: 10px;
         border: 2px solid rgb(212, 212, 212);
         font-size: 1rem;
         transition: all .5s ease-in-out;
@@ -98,19 +99,63 @@
     border: 0 solid rgb(212, 212, 212);
     border-top-width: 2px;
     @extend %flex;
-    justify-content: space-between;
     user-select: none;
+    position: relative;
     .icon{
         @extend %flex;
-        background-color: $primary;
-        $size: 12vh;
-        height: 100%;;
+        background-color: #d4d4d4;
+        $size: 13vh;
+        @media screen and (max-width: 768px){
+            $size: 10vh;
+        }
+        height: $size;
         width: $size;
+        border-radius: 50px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: width .7s ease-in-out, background-color .7s ease-in-out;
         // border-bottom: 2px solid rgb(212, 212, 212)
+        &:hover{
+            background-color: $primary;   
+        }
+        &:last-of-type{
+            background: url("../assets/contato/send.svg") no-repeat, $primary;
+            background-position-x: 50%;
+            background-position-y: 50%;
+            background-size: 32px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            position: absolute;
+            right: 0;
+            &:hover{  
+                width: 20vh;
+            }
+        }
+
+        &.clips{
+            background: url("../assets/contato/clip.svg") no-repeat, $primary;
+            background-position: center;
+            background-size: 32px;
+        }
+
+        &:first-of-type{
+            background: url("../assets/contato/clear.svg") no-repeat, $primary;
+            background-position: center;
+            background-size: 32px;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            position: absolute;
+            left: 0;
+            &:hover{
+                width: 20vh;
+            }
+        }
     }
     img{
         height: 32px;
         width: 32px;
+        z-index: 12;
     }
     input{
         display: none;
@@ -122,11 +167,11 @@
 }
 
 input:-internal-autofill-previewed,
- input:-internal-autofill-selected,
-  textarea:-internal-autofill-previewed,
-   textarea:-internal-autofill-selected,
-    select:-internal-autofill-previewed,
-     select:-internal-autofill-selected{
+input:-internal-autofill-selected,
+textarea:-internal-autofill-previewed,
+textarea:-internal-autofill-selected,
+select:-internal-autofill-previewed,
+select:-internal-autofill-selected{
         background-color: white !important;
         color: $primary !important;
 }

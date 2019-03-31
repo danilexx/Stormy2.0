@@ -33,10 +33,11 @@
     --size: 13vh;
     height: 15vh;
     @media (max-width: 768px){
-        --size: 10vh;
+        --size: 7vh;
     }
 }
 .apps{
+
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-row: 1fr;
@@ -50,6 +51,8 @@
 
 }
 .app{
+    overflow: hidden;
+    position: relative;
     cursor: pointer;
     min-height: var(--size);
     min-width: var(--size);
@@ -133,7 +136,7 @@
 //     </div>
 // </div>
 .content-container{
-    height: 65vh;
+    height: 75vh;
     width: 100%;
     display: grid;
     grid-template-columns: 75% 25%;

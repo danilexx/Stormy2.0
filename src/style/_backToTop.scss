@@ -1,24 +1,35 @@
 .backToTop{
-    background-color: $primary;
+    background: url('../assets/backToTop/arrowUp.svg') no-repeat, $primary;
+    background-position: center;
+    background-size: 32px;
     border-radius: 50%;
     position: fixed;
-    bottom: 0;
-    right: 0;
+    overflow: hidden;
+    bottom: 64px;
+    right: 64px;
     z-index: 1000;
     margin: 32px;
     height: 64px;
     width: 64px; 
-    display: none;
+    display: flex;
     box-shadow: rgba(0, 0, 0, 0.47) 2px 1px 10px 3px;
     justify-content: center;
     align-items: center;
     will-change: transform;
-    transition: transform .5s ease-in-out;
+    visibility: hidden;
+    will-change: opacity, visibility, transform;
+    transition-property: opacity, visibility, background-color;
+    transition: .5s ease-in-out;
+    opacity: 0;
     cursor: pointer;
     img{
         height: 50%;
     }
     &:hover{
-        transform: scale(1.25);
+        background-color: darken($color: $primary, $amount: 10%);
+    }
+    &.show{
+        visibility: visible;
+        opacity: 1;
     }
 }

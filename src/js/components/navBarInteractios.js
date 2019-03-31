@@ -1,5 +1,6 @@
 import Gumshoe from "gumshoejs/dist/gumshoe.js";
 import SmoothScroll from 'smooth-scroll';
+import anime from 'animejs/lib/anime.es.js';
 
 //Istancia a Nav
 let navBar = document.querySelector("nav")
@@ -25,7 +26,7 @@ const toggleNavbar = event =>{
 const getVH = (i)=>(window.innerHeight/100) * i
 
 //Retorna o Offset da Navbar
-const getOffset = ()=>window.innerWidth===768?getVH(10):getVH(10.1)
+const getOffset = ()=>window.innerWidth<=768?getVH(10.1):0;
 
 //Função que seta as interações da navbar
 export const navBarInteractions=()=>{
@@ -41,29 +42,46 @@ export const navBarInteractions=()=>{
     })
 
     //Instancializa o Gumshoe
-    let spy = new Gumshoe('nav ul a', {offset: getOffset()})
+    let spy = new Gumshoe('nav ul a', 
+    {offset: getOffset()}
+    )
 
     //Instancializa o SmoothScroll
-    let scroll = new SmoothScroll('a[href*="#"]',{offset: getOffset()});
+    let scroll = new SmoothScroll('a[href*="#"]',
+    {offset: getOffset()}
+    );
 
-    setInterval(()=>{
-            if(window.scrollY > getVH(20))
-                navBar.classList.remove('big')
-            else if (!navBar.classList.contains('big'))
-                navBar.classList.add('big')
+    // setInterval(()=>{
+    //         if(window.scrollY > getVH(20))
+    //             navBar.classList.remove('big')
+    //         else if (!navBar.classList.contains('big'))
+    //             navBar.classList.add('big')
 
-            if(window.scrollY > getVH(10))
-                document.querySelector(".backToTop").style.display = 'flex';
-            else{
-                document.querySelector(".backToTop").style.display = 'none';
-            }
-        },1);
+    // },1);
+
 
         window.addEventListener('scroll',()=>{
             if(window.scrollY > getVH(80))
                 navBar.classList.remove('big')
             else if (!navBar.classList.contains('big'))
-                navBar.classList.add('big')               
+                navBar.classList.add('big')    
+
+            if(window.scrollY > getVH(10))
+                document.querySelector(".backToTop").classList.add('show');
+            else{
+                document.querySelector(".backToTop").classList.remove('show');
+            }
+        })
+
+        document.querySelector(".backToTop").addEventListener('click', ()=>{
+            // window.scrollTo(0,0)
+            const scrollElement = window.document.scrollingElement;
+            anime({
+                targets: scrollElement,
+                scrollTop: 0,
+                duration: 500,
+                easing: 'easeInOutQuad'
+            })
         })
 
 }

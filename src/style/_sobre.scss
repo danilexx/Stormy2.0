@@ -12,6 +12,7 @@
     height: 10%;
 }
 .btns{
+
     cursor: pointer;
     display: flex;
     justify-content: space-around;
@@ -24,10 +25,12 @@
     border-radius: 50px;
     transition: all 1s ease-in-out;
     transform: translateY(50%);
+    
 }
 .HistoriaContainer,.ValoresContainer{
     display: inline;
     padding: 10px 20px;
+
     p{
         width: fit-content;
         margin: 0 auto;
@@ -42,6 +45,7 @@
     border-right-width: 0;
     width: 50%;
     border-radius: 50px 0 0 50px;
+    
 }
 .ValoresContainer{
     color: white;

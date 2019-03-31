@@ -1,5 +1,5 @@
 nav {
-    background-color: $primary;
+    background-color: transparent;
     height: fit-content;
     display: flex;
     justify-content: center;
@@ -14,6 +14,12 @@ nav {
     opacity: 0;
     animation: fade-in 1s ease-in-out forwards 4s;
     will-change: opacity;
+    &:hover > ul{
+        transform: translateY(0);
+    }
+    &:hover{
+        background-color: $primary;
+    }
     @keyframes fade-in {
         to{
             opacity: 1;
@@ -23,6 +29,9 @@ nav {
         &.big {
             height: 20vh;
             background-color: rgba($color: $primary, $alpha: .5);
+            ul{
+                transform: translateY(0);
+            }
             li{
                 margin: auto 20px;
             }
@@ -69,9 +78,14 @@ nav {
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr;
         list-style-type: none;
+        will-change: transform;
+        transition: transform .5s ease-in-out;
         @media screen and (min-width: 1024px){
             width: 60%;
-
+            
+        }
+        @media screen and (min-width: 768px){
+            transform: translateY(-110%);
         }
         @media screen and (max-width: 768px){
             grid-template-columns: 1fr;
@@ -218,6 +232,7 @@ a{
     }
     @media screen and (max-width: 768px){
         display: flex;
+        background-color: $primary;
     } 
         
 }

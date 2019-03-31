@@ -11,12 +11,12 @@
     background-color: #393e47;
     z-index: 100;
     top: 0;
-    display: none;
+    // display: none;
 
 }
 body{
     // animation: overflow-pop .1s forwards 3.1s;
-    // overflow: hidden;
+    overflow: hidden;
     @keyframes overflow-pop {
         to{
             overflow-y: scroll
