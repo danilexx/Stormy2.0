@@ -163,7 +163,7 @@
     border: 0 solid #d4d4d4;
     border-width: 0 2px 2px 0;
     transition: .5s ease-in-out;
-    transition-property: background-color;
+    transition-property: background-color, background-image;
     cursor: pointer;
     .ripple{
         border-radius: 50%;

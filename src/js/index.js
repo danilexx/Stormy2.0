@@ -61,5 +61,19 @@ function handleGesture() {
     }
 }
 
+document.addEventListener('gumshoeActivate', function (event) {
+
+	// The list item
+	var li = event.target;
+
+	// The link
+	var link = event.detail.link;
+
+	// The content
+    var content = event.detail.content;
+    
+    content.classList.add('first-visited')
+    console.log(content)
+}, false);
 
 

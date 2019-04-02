@@ -33,7 +33,7 @@
 .btn-switcher::after{
     position: absolute;   
     content: '';
-    width: calc(calc(80% /3) - 2px);;
+    width: calc(calc(80% / 3) - 1px);;
     height: 10vh;
     background-color: $primary;
     will-change: width, transform;
@@ -42,13 +42,13 @@
     transform: translateX(var(--translateX));
     // left: calc(50% - calc(80% /6));
     @media screen and (max-width: 768px){
-        width: calc(100% /3);
+        width: calc(100% / 3);
         height: calc(10vh - 4px);
         padding: 1px 0;
     }
 }
 .active .btn-switcher::after{
-    width: calc(calc(100% /3) - 2px);
+    width: calc(calc(100% /3) - 1px);
     height: calc(10vh - 4px);
     padding: 1px 0;
     // left: calc(50% - calc(100% /6));
