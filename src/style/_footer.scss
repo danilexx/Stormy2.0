@@ -1,7 +1,9 @@
+@import 'color';
+
 footer{
     height: 40vh;
     background-color: $primary;
-    border-top: 2px solid rgb(39, 43, 49);
+    border-top: 2px solid $secundary;
     @media (max-width: 768px){
         height: 90.2vh;
         border: none;
@@ -35,12 +37,12 @@ footer{
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr 1fr 10%;
         .title-container{
-            border-top: 2px solid rgb(39, 43, 49);
+            border-top: 2px solid $secundary;
         }
     }
     .title-container{
         height: 20%;
-        border-bottom: 2px solid rgb(39, 43, 49);
+        border-bottom: 2px solid $secundary;
         // font-weight: bold;
         @extend %flex;
         font-size: 1.5rem;
@@ -76,7 +78,7 @@ footer{
 .redes-sociais-container{
     grid-column: 2;
     grid-row: 1;
-    border: 0 solid rgb(39, 43, 49);
+    border: 0 solid $secundary;
     border-width: 0 2px;
     @media (max-width: 768px){
         grid-column: 1;
@@ -124,7 +126,7 @@ footer{
     @extend %flex;
     color: white;
     text-align: center;
-    border-top: 2px solid rgb(39, 43, 49);
+    border-top: 2px solid $secundary;
     @media (max-width: 768px){
         grid-column: 1;
         grid-row: 4; 

@@ -8,7 +8,7 @@
     align-items: center;
     height: 100%;
     width: 100%;
-    background-color: #393e47;
+    background-color: $primary;
     z-index: 100;
     top: 0;
     // display: none;
@@ -31,8 +31,8 @@ body{
         padding: 0 50px;
     }
     .cls-1{fill:#7fe7ff;}
-    .cls-2{fill:#292c33;}
-    .cls-3{fill:#393e47;}
+    .cls-2{fill: darken($color: $primary, $amount: 5%);}
+    .cls-3{fill: $primary;}
     .cls-4{fill:#fff;}
 
 

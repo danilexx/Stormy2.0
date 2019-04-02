@@ -42,12 +42,13 @@ export const navBarInteractions=()=>{
     })
 
     //Instancializa o Gumshoe
-    let spy = new Gumshoe('nav ul a', 
+    let spy = new Gumshoe('nav a', 
     {offset: getOffset()}
     )
-
+    let spy2 = new Gumshoe(' button a, .secoes a'
+    )
     //Instancializa o SmoothScroll
-    let scroll = new SmoothScroll('a[href*="#"]',
+    let scroll = new SmoothScroll('nav a, button a, .secoes a:nth-of-type(2), .secoes a:nth-of-type(3), .secoes a:nth-of-type(4)',
     {offset: getOffset()}
     );
 
@@ -58,7 +59,16 @@ export const navBarInteractions=()=>{
     //             navBar.classList.add('big')
 
     // },1);
-
+    const backToTop=()=>{
+        // window.scrollTo(0,0)
+        const scrollElement = window.document.scrollingElement;
+        anime({
+            targets: scrollElement,
+            scrollTop: 0,
+            duration: 750,
+            easing: 'easeInOutQuad'
+        })
+    }
 
         window.addEventListener('scroll',()=>{
             if(window.scrollY > getVH(80))
@@ -73,15 +83,10 @@ export const navBarInteractions=()=>{
             }
         })
 
-        document.querySelector(".backToTop").addEventListener('click', ()=>{
-            // window.scrollTo(0,0)
-            const scrollElement = window.document.scrollingElement;
-            anime({
-                targets: scrollElement,
-                scrollTop: 0,
-                duration: 500,
-                easing: 'easeInOutQuad'
-            })
-        })
+        document.querySelector(".backToTop").addEventListener('click', backToTop)
+
+        //corrige um bug
+        document.querySelector('.secoes a[href="#Inicio"]').onclick = backToTop       
+
 
 }
