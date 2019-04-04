@@ -105,31 +105,39 @@ button.white{
         }
     }
 
-.readyForRipple.mini-overlay{
-    height: 100%;
-    width: 100%;
-    background-color: yellow;
-    overflow: hidden;
-    position: relative;
-}
+
     
+// .ripple {
+//     width: 2px;
+//     height: 2px;
+//     position: absolute;
+//     border-radius: 50%;
+//     background-color: rgba(255, 255, 255, 0.5);
+//     animation: rippleEffect .5s ease-in-out;
+//     z-index: 1000;
+// }
+
+// @keyframes rippleEffect {
+//     0% {
+//         transform: scale(1);
+//     } 
+//     100% {
+//         opacity: 0;
+//         transform: scale(var(--scale));
+//     }
+// }
+
 .ripple {
-    width: 2px;
-    height: 2px;
-    position: absolute;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
-    animation: rippleEffect .5s ease-in-out;
-    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    transform: scale(0);
+    animation: ripple 0.3s linear forwards;
 }
 
-@keyframes rippleEffect {
-    0% {
-        transform: scale(1);
-    } 
-    100% {
+@keyframes ripple {
+    to {
+        transform: scale(2.5);
         opacity: 0;
-        transform: scale(var(--scale));
     }
 }
-

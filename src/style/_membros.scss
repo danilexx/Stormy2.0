@@ -51,7 +51,10 @@
     }
 }
 .profile-pic.primeiro{
-    background-image: url('../assets/membros/Danilex-profile-pic.jpg');
+    background-image: url('../assets/membros/Danilex-profile-pic.jpeg');
+    @media (max-width:768px){
+        background-position-y: 15%;
+    }
 }
 .profile-pic.segundo{
     background-image: url('../assets/membros/Adnan-profile-pic.jpg');

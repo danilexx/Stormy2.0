@@ -162,7 +162,7 @@
     background-position: center;
     border: 0 solid #d4d4d4;
     border-width: 0 2px 2px 0;
-    transition: .5s ease-in-out;
+    transition: .25s ease-in-out;
     transition-property: background-color, background-image;
     cursor: pointer;
     .ripple{
@@ -259,8 +259,36 @@
     right: 0;
     z-index: 11;
     transition: all .5s ease-in-out;
+    opacity: 0;
     &:hover{
         background-color: rgba($color: red, $alpha: .8)
     }
 }
 
+.arrow{
+    position: fixed;
+    height: 50vh;
+    width: 10vw;
+    background-color: rgba(0, 0, 0, .5);
+    background-position: center;
+    background-size: 40%;
+    background-repeat: no-repeat;
+    top: 50% ;
+    z-index: 12;
+    opacity: 0;
+    transform: translateY(-50%);
+    transition: background-color .25s ease-in-out;
+    border-radius: 4px;
+    cursor: pointer;
+    &.left{
+        background-image: url('../assets/projetos/arrows/baseline-arrow_back_ios-24px.svg');
+        left: 0;
+    }
+    &.right{
+        background-image: url('../assets/projetos/arrows/baseline-arrow_forward_ios-24px.svg');
+        right: 0;
+    }
+    &:hover{
+        background-color: rgba(0, 0, 0, .85);
+    }
+}

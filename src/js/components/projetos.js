@@ -199,17 +199,45 @@ export const projetos = () => {
             return false
 
         let close = document.querySelector('.closeBtn');
+        let leftArrowE = document.querySelector('.left');
+        let rightArrowE = document.querySelector('.right');
+        let listE = [close, leftArrowE, rightArrowE];
         if (close) {
-            document.body.removeChild(close);
+            anime({
+                targets: listE,
+                opacity: 0,
+                duration: 500,
+                complete: ()=>{
+                    document.body.removeChild(close);
+                    document.body.removeChild(leftArrowE);
+                    document.body.removeChild(rightArrowE);
+                }
+            })
+
             img.removeEventListener('click', zoom);
             setTimeout(() => {
                 img.addEventListener('click', zoom)
             }, 1000)
         } else {
             let close = document.createElement('div');
+            let leftArrow = document.createElement('div');
+            let rightArrow = document.createElement('div');
+            let list = [close, leftArrow, rightArrow];
+            leftArrow.className = 'left arrow';
+            rightArrow.className = 'right arrow';
+            leftArrow.addEventListener('click', previousProject);
+            rightArrow.addEventListener('click', nextProject)
             close.classList.add('closeBtn')
             close.addEventListener('click', zoom);
-            document.body.appendChild(close);
+            list.forEach(e=>{
+                document.body.appendChild(e);
+            })
+            anime({
+                targets: list,
+                opacity: 1,
+                duration: 500,
+                easing: 'linear'
+            })
         }
 
 

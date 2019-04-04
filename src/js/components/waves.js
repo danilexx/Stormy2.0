@@ -1,30 +1,26 @@
-let btns = document.querySelectorAll('.icon, .backToTop, .app, .screenshoot, .tab');
+let btns = document.querySelectorAll('.icon, .backToTop, .app, .screenshoot, .tab, button, .secoes a');
 
 export const setWaves = () => {
-    for (var i = 0; i < btns.length; i++) {
-        btns[i].onmousedown = function (e) {
-            e.stopPropagation();
-            var rect = e.target.getBoundingClientRect();
-            
-            var w = this.offsetWidth>598?598:this.offsetWidth,
-                x = e.clientX - rect.left,
-                y = e.clientY - rect.top;
-            console.log(w)
-            var ripple = document.querySelector('.ripple')
-            if (!ripple)
-            {
-                var ripple = document.createElement('span');
-                ripple.className = 'ripple';
-                ripple.style.borderRadius = '50%';
-                ripple.style.left = x + 'px';
-                ripple.style.top = y + 'px';
-                ripple.style.setProperty('--scale', w);
-                this.appendChild(ripple);
-                setTimeout(function () {
-                    ripple.parentNode.removeChild(ripple);
-                }, 500);
-            }
+    btns.forEach(e=>{
+        e.addEventListener('click', createRipple)
+    })
+}
+function createRipple (e) {
+    var circle = document.createElement('div');
+    this.appendChild(circle);
 
-        }
-    }
+    var d = Math.max(this.clientWidth, this.clientHeight)/3;
+
+    circle.style.width = circle.style.height = d + 'px';
+
+var rect = this.getBoundingClientRect();
+circle.style.left = e.clientX - rect.left -d/2 + 'px';
+circle.style.top = e.clientY - rect.top - d/2 + 'px';
+
+setTimeout(() => {
+    circle.parentElement.removeChild(circle)
+}, 650);
+    console.log(this);
+
+    circle.classList.add('ripple');
 }

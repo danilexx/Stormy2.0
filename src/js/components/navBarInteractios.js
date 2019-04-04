@@ -26,7 +26,7 @@ const toggleNavbar = event =>{
 export const getVH = (i)=>(window.innerHeight/100) * i
 
 //Retorna o Offset da Navbar
-const getOffset = ()=>window.innerWidth<=768?getVH(10.1):0;
+const getOffset = ()=>window.innerWidth<=768?getVH(10):0;
 
 //Função que seta as interações da navbar
 export const navBarInteractions=()=>{

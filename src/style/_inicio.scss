@@ -20,6 +20,9 @@
         transform: scale(0);
         animation: scale-in 1s ease-in-out forwards 3.5s;
         will-change: transform;
+        .ripple {
+            background-color: rgba($color: $primary, $alpha: .5);
+        }
     }
     animation: fade-in 1s ease-in-out forwards 3s;
 }

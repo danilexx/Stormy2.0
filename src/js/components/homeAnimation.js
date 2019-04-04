@@ -6,8 +6,7 @@ const getRandomNumber =(min, max)=>{
     return Math.floor(Math.random() * (+max - +min)) + +min
 }
 
-//elementos que serão animados, no caso uma lista de svgs dentro de dois ids
-var elementos = document.querySelectorAll('#left-icons .cls-1, #right-icons .cls-1');
+
 
 //intervalo entre cada ciclo de animação
 export let intervaloAnimation = 200;
@@ -18,12 +17,26 @@ let quantidadeDeAlvosParaAnimação = 8
 //animação em si
 export const animation = () => {
 
+    //elementos que serão animados, no caso uma lista de svgs dentro de dois ids
+    let elementos = document.querySelectorAll('#left-icons .cls-1, #right-icons .cls-1');
+
+    if (window.innerWidth <= 768 && elementos)
+    {
+        elementos.forEach(e=>{
+            e.remove()
+        })
+        clearInterval(this)
+        return false
+    }
+
+
+
     //instancialização da variavel que controlará quando a animação devera ser reinicializada
     let counter;
 
     //anima uma quantidade X de elementos
     for(let i = 0; i<quantidadeDeAlvosParaAnimação; i++)
-    {
+    {   
         //Pega um index aleatorio
         let indexElemento = getRandomNumber(0, elementos.length)
 
